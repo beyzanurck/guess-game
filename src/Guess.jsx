@@ -7,9 +7,12 @@ export default function Guess(props) {
     const [keepGame, setKeepGame] = useState(true)
     const [guess, setGuess] = useState('')
     const [message, setMessage] = useState('')
+    const [animation, setAnimation] = useState(true)
     
     const handleChange = (event) => {
         setGuess(event.target.value)
+
+        setAnimation(true)
     }
 
     const handleSubmit = (event) => {
@@ -27,12 +30,15 @@ export default function Guess(props) {
         else {
             setMessage("Try a lower number.")
         }
+
+        setAnimation(false)
     }
     
     const reset = () => {
         setKeepGame(true);
         setMessage('');
         setGuess('');
+        setAnimation(true)
     }
 
     if(!keepGame){
@@ -48,7 +54,11 @@ export default function Guess(props) {
   return (
     <div>
 
-      <div class="lds-dual-ring"></div>
+        {animation ? (
+            <div className="lds-dual-ring"></div>) 
+            : (<div className="circle"></div>)
+        }
+
 
       <p>Guess a number between 0-100.</p>
 
