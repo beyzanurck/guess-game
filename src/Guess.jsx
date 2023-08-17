@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Guess() {
+export default function Guess(props) {
   return (
     <div>
-      <p>Test</p>
+      <p>{props.random}</p>
     </div>
   )
 }
