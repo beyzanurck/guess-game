@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 
+
 export default function Guess(props) {
+
+    const [keepGame, setKeepGame] = useState(true)
     const [guess, setGuess] = useState('')
     const [message, setMessage] = useState('')
     
@@ -16,6 +19,7 @@ export default function Guess(props) {
 
         if(guessNumber === props.random){
             setMessage("Congratulations! You guessed correctly!")
+            setKeepGame(false)
         }
         else if (guessNumber < props.random) {
             setMessage("Try a higher number.")
@@ -24,12 +28,28 @@ export default function Guess(props) {
             setMessage("Try a lower number.")
         }
     }
+    
+    const resetGame = () => {
+       setKeepGame(true);
+       setMessage('');
+       setGuess('');
+    }
+
+    if(!keepGame){
+        return(
+            <div>
+                <p>Congratulations! You guessed the number.</p>
+                <button onClick={resetGame}>Play Again</button>
+            </div>
+        )
+    }
+  
 
   return (
     <div>
       <p>Guess a number between 0-100.</p>
 
-      <form id="form" type="submit" onSubmit={handleSubmit}>
+      <form id="form" onSubmit={handleSubmit}>
         <input
             type='number'
             id='user-guess'
@@ -37,7 +57,7 @@ export default function Guess(props) {
             placeholder='guess here'
             onChange={handleChange} //calls whenever the input value changes.
         />
-        <button>Click</button>
+        <button type="submit">Click</button>
       </form>
       <p>{message}</p>
     </div>
