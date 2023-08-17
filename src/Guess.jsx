@@ -29,17 +29,17 @@ export default function Guess(props) {
         }
     }
     
-    const resetGame = () => {
-       setKeepGame(true);
-       setMessage('');
-       setGuess('');
+    const reset = () => {
+        setKeepGame(true);
+        setMessage('');
+        setGuess('');
     }
 
     if(!keepGame){
         return(
             <div>
                 <p>Congratulations! You guessed the number.</p>
-                <button onClick={resetGame}>Play Again</button>
+                <button onClick={reset}>Play Again</button>
             </div>
         )
     }
@@ -57,7 +57,7 @@ export default function Guess(props) {
             placeholder='guess here'
             onChange={handleChange} //calls whenever the input value changes.
         />
-        <button type="submit">Click</button>
+        <button id="button" type="submit">Click</button>
       </form>
       <p>{message}</p>
     </div>

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Guess from './Guess'
 
@@ -7,7 +8,7 @@ function App() {
 
   return (
     <>
-      <Guess random = {randomInt}/>
+      <Guess random = {randomInt} />
     </>
   )
 
