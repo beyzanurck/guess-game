@@ -1,13 +1,17 @@
-import { useState } from 'react'
 import './App.css'
 
+const randomInt =  Math.floor(Math.random() * 101)
+console.log(randomInt)
 function App() {
-  
+
   return (
     <>
-      <p className='test'>Hello World!</p>
+
     </>
   )
+
 }
 
 export default App
+
+
