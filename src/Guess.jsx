@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 
 export default function Guess(props) {
-
+ 
     const [keepGame, setKeepGame] = useState(true)
     const [guess, setGuess] = useState('')
     const [message, setMessage] = useState('')
@@ -50,15 +50,12 @@ export default function Guess(props) {
         )
     }
   
-
   return (
     <div>
-
         {animation ? (
             <div className="lds-dual-ring"></div>) 
             : (<div className="circle"></div>)
         }
-
 
       <p>Guess a number between 0-100.</p>
 
