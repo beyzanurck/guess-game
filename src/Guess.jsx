@@ -3,8 +3,8 @@ import { useState } from 'react'
 
 export default function Guess(props) {
     const [guess, setGuess] = useState('')
+    const [message, setMessage] = useState('')
     
-
     const handleChange = (event) => {
         setGuess(event.target.value)
     }
@@ -12,7 +12,17 @@ export default function Guess(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
 
+        const guessNumber = parseInt(guess, 10)
 
+        if(guessNumber === props.random){
+            setMessage("Congratulations! You guessed correctly!")
+        }
+        else if (guessNumber < props.random) {
+            setMessage("Try a higher number.")
+        }
+        else {
+            setMessage("Try a lower number.")
+        }
     }
 
   return (
@@ -29,7 +39,7 @@ export default function Guess(props) {
         />
         <button>Click</button>
       </form>
-      <p>{guess}</p>
+      <p>{message}</p>
     </div>
   )
 }
