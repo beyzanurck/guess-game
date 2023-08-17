@@ -12,6 +12,7 @@ export default function Guess(props) {
             name='user-guess'
             placeholder='guess here'
         />
+        <button>Click</button>
       </form>
     </div>
   )
