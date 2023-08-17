@@ -47,6 +47,9 @@ export default function Guess(props) {
 
   return (
     <div>
+
+      <div class="lds-dual-ring"></div>
+
       <p>Guess a number between 0-100.</p>
 
       <form id="form" onSubmit={handleSubmit}>
