@@ -1,13 +1,16 @@
-import { useState } from 'react'
 import './App.css'
+import Guess from './Guess'
+
 
 function App() {
-  
+  const randomInt =  Math.floor(Math.random() * 101)
   return (
     <>
-      <p className='test'>Hello World!</p>
+      <Guess random = {randomInt} />
     </>
   )
 }
 
 export default App
+
+
